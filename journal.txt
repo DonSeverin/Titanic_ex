@@ -1,0 +1,89 @@
+Notes to serve as thougs for analysis in the data analysis and investigation section.
+
+
+- We want to think about what features in this data set would work and be worth wild logicaly to keep and produce a valid prediction
+
+of the bat we saw that 'Embarked','Cabin','Name','Ticket' where trouble poinntss holding a vast amount of missing data points and could not be filled or it would not be worth filling due to alpha numeric properties and havign more than 50% of the data points missing will not produce a good interpolation or prediction of missing points. sowe dropped them. 
+
+- Anothe rpoint to keep in mind for later is the Sex feature i think it will play an important however bias rle in the training sstag, but we must map our current string data into numeric 1 and 0 representations to get  abetter result * Find research to support this*
+
+- Age was another element of important missing 177 ata pointsk could easily be filled using interpolation wee went wthith a polinomial method for finding the closest points.
+
+
+- now that the data is cleaned and preprocessed and we are dow to the features we thing worthy can we find any linking ideas to suggest they will produce a good result. 
+
+----------------------------
+
+if we look at the statistical overview this is what we see.
+
+- 0.38 or 38% survival rate 
+- average age of 29 
+- 50% of passengers are siblings and spouces(Familial relationship)
+
+- 38% of passengers had a parent child
+
+- the fare was on average 32 dollars(Not sure this is significant may drop)
+
+- We have concluded that we will focus on the items that create survivablity at the time of impact. not external factors that do not contribute to the survival.
+
+
+1. Let's look for corrolations between all features then delve deeper in our findings. 
+
+2 We have found the following corrolations 
+
+a. we will look at both the strong positive and negative corrolations. Where the change in one variable is accompanied by a consistent change in anothe rvariable \
+
+research-
+https://statisticsbyjim.com/glossary/correlation/
+https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median.php
+https://www.scribbr.com/statistics/standard-deviation/#:~:text=the%20empirical%20rule%3F-,The%20empirical%20rule%2C%20or%20the%2068%2D95%2D99.7%20rule,standard%20deviations%20of%20the%20mean.
+https://en.wikipedia.org/wiki/Correlation
+https://statisticsbyjim.com/basics/correlations/
+
+Positive 
+    - Survived and Sex: Done
+
+    - Sex and Parch
+    - Sex and SibSp
+    - Parch and SibSp
+
+
+Negative
+    - Survive and Pclass: Done
+    - Survive and Parch: Done
+
+    - Pclass and Age
+    - Pclass and SibSp
+    - Sex and SibSp
+    - Sex and Pclass
+
+
+Now we know the relationship between the data let's evaluate then together and workout what tese relationships meant for survival.
+
+We will try to make some meaning ful combintition in this analysis. the strategy i want to take is look at the survival corrolations with some of the other corrolated features to see how they influenced survival collectevely. 
+
+
+# Survival based on sex and Pclass 
+
+As we found in the paper we see alot more people loosing thioer livesin the lower socia economic circles than those in first class.
+
+Also we see more men loosiing thier lives 
+
+Variables Classification
+
+Survived - Categorical
+Pclass   - Categorical 
+Age      - Numerical 
+Sex      - Categorical 
+Parch    - Numerical
+SibSp    - Numerical
+
+PairPlot Pair plot is used to understand the best set of features to explain a relationship between two variables or to form the most separated clusters. It also helps to form some simple classification models by drawing some simple lines or make linear separation in our data-set.
+
+
+------------------------------------------
+
+- Bulding model
+
+
+
